@@ -6,7 +6,7 @@ def clean_data(data):
   new_data = data[best_features]
   tot = new_data.shape[0]
   for feature in new_data.columns:
-    n = train_txn[feature].isnull().sum()
+    n = data[feature].isnull().sum()
     if n < .1*tot:
       new_data = new_data[new_data[feature].notna()]
     else:
